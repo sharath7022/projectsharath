@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Restaurant Ticket</title>
+<style>
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    width: 300px;
+    margin: 20px auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    box-shadow: 2px 2px 5px rgba(0,0,0,0.2);
+  }
+  .ticket-header, .ticket-footer {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  .ticket-header h2 {
+    margin: 5px 0;
+  }
+  .ticket-header p {
+    margin: 2px 0;
+  }
+  .order-details table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 10px;
+  }
+  .order-details th, .order-details td {
+    padding: 5px 0;
+    text-align: left;
+    border-bottom: 1px dashed #ccc;
+  }
+  .order-details th {
+    text-align: left;
+  }
+  .total {
+    text-align: right;
+    font-weight: bold;
+    margin-top: 10px;
+  }
+  .thank-you {
+    text-align: center;
+    margin-top: 15px;
+    font-style: italic;
+  }
+</style>
+</head>
+<body>
+
+<div class="restaurant-ticket">
+  <div class="ticket-header">
+    <h2>The Delicious Diner</h2>
+    <p>123 Foodie Lane, Flavor Town</p>
+    <p>Phone: (555) 123-4567</p>
+    <p>Date: June 2, 2025</p>
+    <p>Order #: 7890</p>
+    <p>Table: 5</p>
+  </div>
+
+  <div class="order-details">
+    <table>
+      <thead>
+        <tr>
+          <th>Qty</th>
+          <th>Item</th>
+          <th>Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>Classic Burger</td>
+          <td>$12.50</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Fries (Large)</td>
+          <td>$7.00</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Soda</td>
+          <td>$3.00</td>
+        </tr>
+        <tr>
+          <td>1</td>
+          <td>Cheesecake</td>
+          <td>$6.75</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="total">
+    <p>Subtotal: $29.25</p>
+    <p>Tax (8%): $2.34</p>
+    <p>Total: $31.59</p>
+  </div>
+
+  <div class="ticket-footer">
+    <p class="thank-you">Thank you for your business!</p>
+    <p>Please come again!</p>
+  </div>
+</div>
+
+</body>
+</html><!DOCTYPE html>
+<html>
+<head>
+<title>Restaurant Ticket</title>
+<style>
+  /* General Body Styling */
+  body {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 0.9em;
+    max-width: 350px; /* Adjust width as needed for a receipt-like feel */
+    margin: 20px auto;
+    border: 1px solid #eee;
+    padding: 15px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    background-color: #fff;
+    line-height: 1.4;
+    color: #333;
+  }
+
+  /* Ticket Header */
+  .ticket-header {
+    text-align: center;
+    margin-bottom: 20px;
+    border-bottom: 1px dashed #ccc;
+    padding-bottom: 15px;
+  }
+
+  .ticket-header h2 {
+    margin: 0;
+    font-size: 1.8em;
+    color: #222;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+
+  .ticket-header p {
+    margin: 3px 0;
+    font-size: 0.9em;
+    color: #555;
+  }
+
+  .ticket-header .order-info {
+    margin-top: 10px;
+    font-size: 0.85em;
+  }
+
+  /* Order Details Table */
+  .order-details {
+    margin-bottom: 20px;
+  }
+
+  .order-details table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  .order-details th, .order-details td {
+    padding: 8px 0;
+    text-align: left;
+    border-bottom: 1px dashed #ddd;
+    vertical-align: top;
+  }
+
+  .order-details th {
+    font-weight: bold;
+    color: #444;
+    text-transform: uppercase;
+    font-size: 0.8em;
+  }
+
+  .order-details .item-name {
+    font-weight: bold;
+    color: #333;
+  }
+
+  .order-details .item-qty {
+    width: 10%;
+    text-align: center;
+  }
+
+  .order-details .item-price {
+    width: 25%;
+    text-align: right;
+  }
+
+  /* Subtotals and Total */
+  .totals {
+    text-align: right;
+    margin-top: 15px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc;
+  }
+
+  .totals p {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #333;
+  }
+
+  .totals .subtotal, .totals .tax {
+    font-weight: normal;
+  }
+
+  .totals .final-total {
+    font-size: 1.3em;
+    font-weight: bold;
+    color: #000;
+    margin-top: 10px;
+  }
+
+  /* Payment Information */
+  .payment-info {
+    text-align: center;
+    margin-top: 20px;
+    border-top: 1px dashed #ccc;
+    padding-top: 15px;
+    font-size: 0.85em;
+    color: #555;
+  }
+
+  /* Ticket Footer */
+  .ticket-footer {
+    text-align: center;
+    margin-top: 20px;
+    padding-top: 15px;
+    border-top: 1px dashed #ccc;
+  }
+
+  .ticket-footer .thank-you {
+    font-size: 1.1em;
+    font-style: italic;
+    font-weight: bold;
+    color: #444;
+    margin-bottom: 5px;
+  }
+
+  .ticket-footer .website-info {
+    font-size: 0.8em;
+    color: #666;
+  }
+</style>
+</head>
+<body>
+
+<div class="restaurant-ticket">
+  <div class="ticket-header">
+    <h2>The Grand Feast Bistro</h2>
+    <p>123 Culinary Drive, Gastronomy City</p>
+    <p>Phone: (555) 987-6543 | Email: info@grandfeast.com</p>
+    <p class="order-info">
+      Date: 02/06/2025 | Time: 01:00 AM<br>
+      Order #: GFB12345 | Table: 7 | Server: Sarah M.
+    </p>
+  </div>
+
+  <div class="order-details">
+    <table>
+      <thead>
+        <tr>
+          <th class="item-qty">Qty</th>
+          <th>Item Description</th>
+          <th class="item-price">Price</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="item-qty">1</td>
+          <td class="item-name">Gourmet Steak Frites</td>
+          <td class="item-price">$28.99</td>
+        </tr>
+        <tr>
+          <td class="item-qty">2</td>
+          <td class="item-name">Creamy Mushroom Risotto</td>
+          <td class="item-price">$18.50</td>
+        </tr>
+        <tr>
+          <td class="item-qty">1</td>
+          <td class="item-name">Chef's Salad (Add Chicken)</td>
+          <td class="item-price">$14.75</td>
+        </tr>
+        <tr>
+          <td class="item-qty">3</td>
+          <td class="item-name">Sparkling Water</td>
+          <td class="item-price">$4.00</td>
+        </tr>
+        <tr>
+          <td class="item-qty">1</td>
+          <td class="item-name">Chocolate Lava Cake</td>
+          <td class="item-price">$9.25</td>
+        </tr>
+        <tr>
+          <td class="item-qty">2</td>
+          <td class="item-name">Espresso</td>
+          <td class="item-price">$3.50</td>
+        </tr>
+        <tr>
+          <td class="item-qty">1</td>
+          <td class="item-name">Kids Pasta w/ Meatballs</td>
+          <td class="item-price">$12.00</td>
+        </tr>
+        <tr>
+          <td class="item-qty">1</td>
+          <td class="item-name">Grilled Salmon w/ Asparagus</td>
+          <td class="item-price">$26.50</td>
+        </tr>
+        <tr>
+          <td class="item-qty">1</td>
+          <td class="item-name">Bottle of Cabernet Sauvignon</td>
+          <td class="item-price">$45.00</td>
+        </tr>
+        <tr>
+          <td class="item-qty">1</td>
+          <td class="item-name">Artisan Bread Basket</td>
+          <td class="item-price">$6.00</td>
+        </tr>
+        <tr>
+          <td class="item-qty">2</td>
+          <td class="item-name">Vanilla Bean Ice Cream</td>
+          <td class="item-price">$7.00</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="totals">
+    <p class="subtotal">Subtotal: $190.49</p>
+    <p class="tax">Tax (8%): $15.24</p>
+    <p class="final-total">Total: $205.73</p>
+  </div>
+
+  <div class="payment-info">
+    <p>Payment Method: Credit Card (Visa) **** **** **** 1234</p>
+    <p>Transaction ID: TRN-GFB-987654</p>
+  </div>
+
+  <div class="ticket-footer">
+    <p class="thank-you">Thank you for dining at The Grand Feast Bistro!</p>
+    <p class="website-info">Visit us online at www.grandfeast.com</p>
+    <p>We look forward to serving you again soon!</p>
+  </div>
+</div>
+
+</body>
+</html>
