@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Grand Feast Bistro - Your Digital Receipt</title>
+    <style>
+        /* General Body and Container Styling */
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #f8f8f8;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: flex-start;
+            min-height: 100vh;
+            box-sizing: border-box;
+        }
+
+        .restaurant-ticket {
+            background-color: #ffffff;
+            width: 100%;
+            max-width: 400px; /* Slightly wider for more content */
+            border: 1px solid #e0e0e0;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+            padding: 30px; /* More generous padding */
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            line-height: 1.5;
+            color: #333;
+        }
+
+        /* Header Section */
+        .ticket-header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding-bottom: 20px;
+            border-bottom: 2px dashed #cccccc; /* Thicker dashed line */
+            position: relative;
+        }
+
+        .ticket-header h2 {
+            font-family: 'Georgia', serif;
+            font-size: 2.4em; /* Larger restaurant name */
+            margin: 0 0 10px 0;
+            color: #222222;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .ticket-header p {
+            margin: 5px 0;
+            font-size: 0.9em;
+            color: #666666;
+        }
+
+        .ticket-header .contact-info {
+            font-size: 0.85em;
+            margin-top: 10px;
+        }
+
+        .ticket-header .order-info {
+            margin-top: 20px;
+            font-size: 0.82em;
+            color: #777777;
+            background-color: #f2f2f2;
+            padding: 8px 15px;
+            border-radius: 5px;
+            display: inline-block; /* To contain background */
+        }
+
+        /* Order Details Table */
+        .order-details {
+            margin-bottom: 30px;
+        }
+
+        .order-details table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 0.95em;
+        }
+
+        .order-details th,
+        .order-details td {
+            padding: 12px 0; /* More padding for items */
+            text-align: left;
+            border-bottom: 1px dashed #e5e5e5;
+            vertical-align: top;
+        }
+
+        .order-details th {
+            font-weight: 600;
+            color: #555555;
+            text-transform: uppercase;
+            font-size: 0.88em;
+            padding-bottom: 10px;
+            border-bottom: 2px solid #dddddd; /* Thicker solid line for header */
+        }
+
+        .order-details td {
+            color: #333333;
+        }
+
+        .order-details .item-name {
+            font-weight: 500;
+            color: #222222;
+            padding-left: 8px; /* Slight indent for item name */
+        }
+
+        .order-details .item-qty {
+            width: 10%;
+            text-align: center;
+            color: #555555;
+        }
+
+        .order-details .item-price {
+            width: 25%;
+            text-align: right;
+            font-weight: 500;
+        }
+
+        .order-details table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Totals Section */
+        .totals {
+            text-align: right;
+            margin-top: 25px;
+            padding-top: 25px;
+            border-top: 2px dashed #cccccc; /* Thicker dashed line */
+        }
+
+        .totals p {
+            margin: 10px 0;
+            font-size: 1.05em;
+            color: #333333;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .totals span:first-child {
+            font-weight: normal;
+            color: #555555;
+        }
+
+        .totals span:last-child {
+            font-weight: 600;
+            color: #222222;
+            min-width: 90px; /* Ensure amounts align */
+            text-align: right;
+        }
+
+        .totals .final-total {
+            font-size: 1.5em; /* Larger final total */
+            font-weight: 700;
+            color: #000000;
+            margin-top: 20px;
+            padding-top: 15px;
+            border-top: 2px solid #aaaaaa; /* Stronger line for total */
+        }
+
+        /* Payment Information */
+        .payment-info {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px dashed #cccccc;
+            font-size: 0.88em;
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        /* Customer Feedback Section */
+        .feedback-request {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px dashed #cccccc;
+            font-size: 0.85em;
+            color: #555555;
+        }
+        .feedback-request p {
+            margin: 5px 0;
+        }
+        .feedback-request .qr-code {
+            width: 80px; /* Size of QR code placeholder */
+            height: 80px;
+            background-color: #e0e0e0;
+            margin: 15px auto 10px;
+            display: block;
+            border-radius: 5px;
+            line-height: 80px;
+            text-align: center;
+            font-size: 0.7em;
+            color: #aaa;
+            overflow: hidden;
+        }
+
+        /* Footer Section */
+        .ticket-footer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 2px dashed #cccccc;
+        }
+
+        .ticket-footer .thank-you {
+            font-size: 1.3em;
+            font-style: italic;
+            font-weight: 600;
+            color: #444444;
+            margin-bottom: 12px;
+        }
+
+        .ticket-footer .website-info,
+        .ticket-footer p:last-of-type {
+            font-size: 0.85em;
+            color: #888888;
+            margin: 8px 0;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+
+            .restaurant-ticket {
+                box-shadow: none !important;
+                border: none !important;
+                max-width: none;
+                padding: 0;
+                margin: 0; /* Remove margin for strict print */
+            }
+
+            .ticket-header, .order-details, .totals, .payment-info, .feedback-request, .ticket-footer {
+                margin-left: 15px; /* Slight margin for content on print */
+                margin-right: 15px;
+            }
+
+            /* Ensure all borders show clearly */
+            .ticket-header, .order-details th, .totals, .payment-info, .feedback-request, .ticket-footer {
+                border-color: #000 !important;
+                border-style: dashed !important; /* Ensure dashed lines print as such */
+            }
+        }
+
+        /* Basic Responsive Adjustments */
+        @media (max-width: 500px) {
+            .restaurant-ticket {
+                max-width: 98%;
+                padding: 15px 20px;
+            }
+
+            .ticket-header h2 {
+                font-size: 2em;
+            }
+
+            .ticket-header p,
+            .ticket-header .order-info {
+                font-size: 0.8em;
+            }
+
+            .order-details th,
+            .order-details td {
+                padding: 10px 0;
+                font-size: 0.88em;
+            }
+
+            .totals p {
+                font-size: 1em;
+            }
+
+            .totals .final-total {
+                font-size: 1.3em;
+            }
+
+            .payment-info,
+            .feedback-request,
+            .ticket-footer .thank-you,
+            .ticket-footer .website-info,
+            .ticket-footer p {
+                font-size: 0.8em;
+            }
+            .feedback-request .qr-code {
+                width: 60px;
+                height: 60px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="restaurant-ticket">
+        <div class="ticket-header">
+            <h2>The Grand Feast Bistro</h2>
+            <p>123 Culinary Drive, Gastronomy City, Pincode 123456</p>
+            <p class="contact-info">Phone: +91 (555) 987-6543 | Email: info@grandfeast.com</p>
+            <p class="order-info">
+                Date: 02/06/2025 | Time: 01:15 AM IST<br>
+                Order #: GFB-20250602-12345 | Table: 7 | Server: Sarah M.
+            </p>
+        </div>
+
+        <div class="order-details">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="item-qty">Qty</th>
+                        <th>Item Description</th>
+                        <th class="item-price">Price</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="item-qty">1</td>
+                        <td class="item-name">Gourmet Steak Frites</td>
+                        <td class="item-price">$28.99</td>
+                    </tr>
+                    <tr>
+                        <td class="item-qty">2
