@@ -1,0 +1,250 @@
+/* style.css */
+
+/* General Body and Container Styling */
+body {
+    font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    /* Using a more modern, readable sans-serif font, with fallbacks */
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    background-color: #f8f8f8; /* Light background for the page */
+    margin: 0;
+    padding: 20px; /* Padding around the ticket on the page */
+    display: flex;
+    justify-content: center; /* Center the ticket horizontally */
+    align-items: flex-start; /* Align ticket to the top */
+    min-height: 100vh; /* Ensure body takes full viewport height */
+    box-sizing: border-box; /* Include padding in element's total width and height */
+}
+
+.restaurant-ticket {
+    background-color: #ffffff; /* White background for the ticket itself */
+    width: 100%;
+    max-width: 380px; /* Increased max-width slightly for better content fit */
+    border: 1px solid #e0e0e0; /* Subtle border */
+    border-radius: 8px; /* Slightly rounded corners */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08); /* Softer, larger shadow */
+    padding: 25px 30px; /* More generous padding inside the ticket */
+    box-sizing: border-box;
+    position: relative; /* Needed for any absolute positioning later */
+    overflow: hidden; /* Clear floats, prevent content spilling */
+}
+
+/* Header Section */
+.ticket-header {
+    text-align: center;
+    margin-bottom: 25px;
+    padding-bottom: 15px;
+    border-bottom: 1px dashed #cccccc; /* Dashed line separator */
+    position: relative;
+}
+
+.ticket-header h2 {
+    font-family: 'Georgia', serif; /* A classic font for the restaurant name */
+    font-size: 2.2em;
+    margin: 0 0 8px 0;
+    color: #333333;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.ticket-header p {
+    margin: 4px 0;
+    font-size: 0.88em;
+    color: #666666;
+    line-height: 1.5;
+}
+
+.ticket-header .order-info {
+    margin-top: 15px;
+    font-size: 0.8em;
+    color: #777777;
+    line-height: 1.6;
+}
+
+/* Order Details Table */
+.order-details {
+    margin-bottom: 25px;
+}
+
+.order-details table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 0.92em;
+}
+
+.order-details th,
+.order-details td {
+    padding: 10px 0;
+    text-align: left;
+    border-bottom: 1px dashed #e5e5e5; /* Lighter dashed line for items */
+    vertical-align: top;
+}
+
+.order-details th {
+    font-weight: 600; /* Slightly bolder */
+    color: #555555;
+    text-transform: uppercase;
+    font-size: 0.85em;
+    padding-bottom: 8px;
+    border-bottom: 1px solid #dddddd; /* Solid line for table header */
+}
+
+.order-details td {
+    color: #333333;
+}
+
+.order-details .item-name {
+    font-weight: 500;
+    color: #222222;
+    padding-left: 5px; /* Slight indent for item name */
+}
+
+.order-details .item-qty {
+    width: 12%; /* Adjusted width */
+    text-align: center;
+    color: #555555;
+}
+
+.order-details .item-price {
+    width: 25%; /* Adjusted width */
+    text-align: right;
+    font-weight: 500;
+}
+
+/* Remove border from the last row */
+.order-details table tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* Totals Section */
+.totals {
+    text-align: right;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px dashed #cccccc; /* Dashed line above totals */
+}
+
+.totals p {
+    margin: 8px 0;
+    font-size: 1em;
+    color: #333333;
+    display: flex; /* Use flexbox for spacing */
+    justify-content: space-between; /* Distribute space between text and amount */
+    align-items: baseline;
+}
+
+.totals span:first-child {
+    font-weight: normal;
+    color: #555555;
+}
+
+.totals span:last-child {
+    font-weight: 600; /* Bolder amounts */
+    color: #222222;
+    min-width: 80px; /* Ensure amounts align */
+    text-align: right;
+}
+
+.totals .final-total {
+    font-size: 1.4em;
+    font-weight: 700; /* Extra bold for final total */
+    color: #000000;
+    margin-top: 15px;
+    padding-top: 10px;
+    border-top: 1px solid #aaaaaa; /* Stronger line for total */
+}
+
+/* Payment Information */
+.payment-info {
+    text-align: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px dashed #cccccc;
+    font-size: 0.85em;
+    color: #666666;
+    line-height: 1.5;
+}
+
+/* Footer Section */
+.ticket-footer {
+    text-align: center;
+    margin-top: 30px;
+    padding-top: 25px;
+    border-top: 1px dashed #cccccc;
+}
+
+.ticket-footer .thank-you {
+    font-size: 1.2em;
+    font-style: italic;
+    font-weight: 600;
+    color: #444444;
+    margin-bottom: 10px;
+}
+
+.ticket-footer .website-info,
+.ticket-footer p:last-of-type {
+    font-size: 0.8em;
+    color: #888888;
+    margin: 5px 0;
+}
+
+/* Print Styles (Optional but recommended for actual receipts) */
+@media print {
+    body {
+        background-color: #ffffff !important; /* White background for printing */
+        margin: 0;
+        padding: 0;
+        display: block; /* Remove flex on print */
+    }
+
+    .restaurant-ticket {
+        box-shadow: none !important; /* No shadow on print */
+        border: none !important; /* No border on print */
+        max-width: none; /* Allow ticket to take full print width if needed */
+        padding: 0; /* Remove padding for print */
+    }
+
+    /* Adjust margins for printing if needed */
+    .ticket-header, .order-details, .totals, .payment-info, .ticket-footer {
+        margin-left: 10px;
+        margin-right: 10px;
+    }
+}
+
+/* Basic Responsive Adjustments */
+@media (max-width: 480px) {
+    .restaurant-ticket {
+        max-width: 95%; /* Adjust width for smaller screens */
+        padding: 15px 20px;
+    }
+
+    .ticket-header h2 {
+        font-size: 1.8em;
+    }
+
+    .ticket-header p,
+    .ticket-header .order-info {
+        font-size: 0.8em;
+    }
+
+    .order-details th,
+    .order-details td {
+        padding: 8px 0;
+        font-size: 0.88em;
+    }
+
+    .totals p {
+        font-size: 0.95em;
+    }
+
+    .totals .final-total {
+        font-size: 1.2em;
+    }
+
+    .payment-info,
+    .ticket-footer .thank-you,
+    .ticket-footer .website-info,
+    .ticket-footer p {
+        font-size: 0.75em;
+    }
+}
