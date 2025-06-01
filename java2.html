@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Culinary Haven - Official Receipt</title>
+    <style>
+        /* Base Styles for the document */
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #f5f5f5; /* A very light gray background */
+            margin: 0;
+            padding: 25px; /* Ample padding around the ticket */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Keeps the ticket at the top of the page */
+            min-height: 100vh; /* Ensures the body takes full viewport height */
+            box-sizing: border-box; /* Includes padding in element's total width and height */
+            color: #333; /* Default text color */
+        }
+
+        /* Main Ticket Container */
+        .restaurant-ticket {
+            background-color: #ffffff; /* Pure white background for the ticket */
+            width: 100%;
+            max-width: 420px; /* Slightly wider for more content */
+            border: 1px solid #e8e8e8; /* Very light border */
+            border-radius: 10px; /* Slightly more rounded corners */
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Culinary Haven - Official Receipt</title>
+    <style>
+        /* Base Styles for the document */
+        body {
+            font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            background-color: #f5f5f5; /* A very light gray background */
+            margin: 0;
+            padding: 25px; /* Ample padding around the ticket */
+            display: flex;
+            justify-content: center;
+            align-items: flex-start; /* Keeps the ticket at the top of the page */
+            min-height: 100vh; /* Ensures the body takes full viewport height */
+            box-sizing: border-box; /* Includes padding in element's total width and height */
+            color: #333; /* Default text color */
+        }
+
+        /* Main Ticket Container */
+        .restaurant-ticket {
+            background-color: #ffffff; /* Pure white background for the ticket */
+            width: 100%;
+            max-width: 420px; /* Slightly wider for more content */
+            border: 1px solid #e8e8e8; /* Very light border */
+            border-radius: 10px; /* Slightly more rounded corners */
+            box-shadow: 0 6px 18px rgba(0, 0, 0, 0.1); /* Enhanced shadow for depth */
+            padding: 35px 40px; /* More padding for a premium feel */
+            box-sizing: border-box;
+            position: relative;
+            overflow: hidden;
+            line-height: 1.6; /* Increased line-height for readability */
+        }
+
+        /* Decorative top/bottom elements (optional, but adds flair) */
+        .restaurant-ticket::before,
+        .restaurant-ticket::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            right: 0;
+            height: 10px;
+            background: repeating-linear-gradient(-45deg, #eee, #eee 5px, transparent 5px, transparent 10px);
+            opacity: 0.5; /* Subtle pattern */
+        }
+        .restaurant-ticket::before {
+            top: 0;
+        }
+        .restaurant-ticket::after {
+            bottom: 0;
+            transform: rotate(180deg);
+        }
+
+        /* Header Section */
+        .ticket-header {
+            text-align: center;
+            margin-bottom: 35px;
+            padding-bottom: 25px;
+            border-bottom: 3px dashed #dcdcdc; /* Thicker dashed separator */
+            position: relative;
+        }
+
+        .ticket-header h2 {
+            font-family: 'Playfair Display', serif; /* A more elegant font for the name */
+            font-size: 2.6em; /* Even larger restaurant name */
+            margin: 0 0 12px 0;
+            color: #1a1a1a; /* Darker color for prominence */
+            letter-spacing: 1.5px;
+            text-transform: uppercase;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.05);
+        }
+
+        .ticket-header p {
+            margin: 6px 0;
+            font-size: 0.95em;
+            color: #555555;
+        }
+
+        .ticket-header .contact-info {
+            font-size: 0.88em;
+            margin-top: 15px;
+            color: #777777;
+        }
+
+        .ticket-header .order-info {
+            margin-top: 25px;
+            font-size: 0.85em;
+            color: #666666;
+            background-color: #f7f7f7; /* Slightly darker background for this section */
+            padding: 10px 20px;
+            border-radius: 7px;
+            display: inline-block;
+            border: 1px solid #e0e0e0;
+        }
+
+        /* Itemized Order Details Table */
+        .order-details {
+            margin-bottom: 35px;
+        }
+
+        .order-details table {
+            width: 100%;
+            border-collapse: collapse;
+            font-size: 1em; /* Standard font size for items */
+        }
+
+        .order-details th,
+        .order-details td {
+            padding: 14px 0; /* More vertical padding */
+            text-align: left;
+            border-bottom: 1px dashed #ededed; /* Very light dashed line */
+            vertical-align: top;
+        }
+
+        .order-details th {
+            font-weight: 700; /* Bolder headers */
+            color: #444444;
+            text-transform: uppercase;
+            font-size: 0.9em;
+            padding-bottom: 12px;
+            border-bottom: 2px solid #cfcfcf; /* Stronger solid line for header */
+        }
+
+        .order-details td {
+            color: #333333;
+        }
+
+        .order-details .item-name {
+            font-weight: 500;
+            color: #222222;
+            padding-left: 10px; /* Enhanced indent */
+        }
+
+        .order-details .item-qty {
+            width: 8%; /* Reduced width for quantity */
+            text-align: center;
+            color: #555555;
+        }
+
+        .order-details .item-price {
+            width: 22%; /* Adjusted width for price */
+            text-align: right;
+            font-weight: 500;
+        }
+
+        /* Remove border from the very last item row */
+        .order-details table tbody tr:last-child td {
+            border-bottom: none;
+        }
+
+        /* Totals Section */
+        .totals {
+            text-align: right;
+            margin-top: 30px;
+            padding-top: 30px;
+            border-top: 3px dashed #dcdcdc; /* Thicker dashed line */
+        }
+
+        .totals p {
+            margin: 12px 0;
+            font-size: 1.1em;
+            color: #333333;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .totals span:first-child {
+            font-weight: 500; /* Slightly bolder for labels */
+            color: #555555;
+        }
+
+        .totals span:last-child {
+            font-weight: 700; /* Bold for amounts */
+            color: #222222;
+            min-width: 100px; /* Ensure amounts align well */
+            text-align: right;
+        }
+
+        .totals .final-total {
+            font-size: 1.6em; /* Even larger final total */
+            font-weight: 800; /* Extra extra bold */
+            color: #000000;
+            margin-top: 25px;
+            padding-top: 20px;
+            border-top: 3px solid #b0b0b0; /* Stronger solid line */
+        }
+
+        /* Payment Information */
+        .payment-info {
+            text-align: center;
+            margin-top: 35px;
+            padding-top: 30px;
+            border-top: 1px dashed #cccccc;
+            font-size: 0.9em;
+            color: #666666;
+            line-height: 1.6;
+        }
+
+        /* Loyalty Program / Special Offer */
+        .loyalty-offer {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px dashed #cccccc;
+            font-size: 0.85em;
+            color: #007bff; /* A distinct color for offers */
+            font-weight: 600;
+        }
+        .loyalty-offer p {
+            margin: 5px 0;
+        }
+        .loyalty-offer span {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9em;
+            color: #333;
+        }
+
+        /* Customer Feedback Section */
+        .feedback-request {
+            text-align: center;
+            margin-top: 30px;
+            padding-top: 25px;
+            border-top: 1px dashed #cccccc;
+            font-size: 0.88em;
+            color: #555555;
+        }
+        .feedback-request p {
+            margin: 5px 0;
+        }
+        .feedback-request .qr-code {
+            width: 90px; /* Size of QR code placeholder */
+            height: 90px;
+            background-color: #ececec;
+            margin: 20px auto 12px;
+            display: block;
+            border-radius: 5px;
+            line-height: 90px; /* Vertically center placeholder text */
+            text-align: center;
+            font-size: 0.75em;
+            color: #aaaaaa;
+            overflow: hidden;
+            box-shadow: inset 0 0 5px rgba(0,0,0,0.05);
+        }
+
+        /* Footer Section */
+        .ticket-footer {
+            text-align: center;
+            margin-top: 35px;
+            padding-top: 30px;
+            border-top: 3px dashed #dcdcdc;
+        }
+
+        .ticket-footer .thank-you {
+            font-size: 1.4em;
+            font-style: italic;
+            font-weight: 700;
+            color: #333333;
+            margin-bottom: 15px;
+        }
+
+        .ticket-footer .website-info,
+        .ticket-footer p:last-of-type {
+            font-size: 0.88em;
+            color: #777777;
+            margin: 10px 0;
+            line-height: 1.4;
+        }
+
+        /* Print Styles */
+        @media print {
+            body {
+                background-color: #ffffff !important;
+                margin: 0;
+                padding: 0;
+                display: block;
+            }
+
+            .restaurant-ticket {
+                box-shadow: none !important;
+                border: none !important;
+                max-width: none;
+                padding: 0;
+                margin: 0;
+            }
+
+            .restaurant-ticket::before, .restaurant-ticket::after {
+                display: none; /* Hide decorative patterns on print */
+            }
+
+            .ticket-header, .order-details, .totals, .payment-info, .loyalty-offer, .feedback-request, .ticket-footer {
+                margin-left: 15px;
+                margin-right: 15px;
+            }
+
+            /* Ensure all borders show clearly on print */
+            .ticket-header, .order-details th, .totals, .payment-info, .loyalty-offer, .feedback-request, .ticket-footer {
+                border-color: #000 !important;
+                border-style: dashed !important;
+            }
+        }
+
+        /* Basic Responsive Adjustments */
+        @media (max-width: 550px) {
+            .restaurant-ticket {
+                max-width: 98%;
+                padding: 20px 25px;
+            }
+
+            .ticket-header h2 {
+                font-size: 2.2em;
+            }
+
+            .ticket-header p,
+            .ticket-header .order-info {
+                font-size: 0.85em;
+            }
+
+            .order-details th,
+            .order-details td {
+                padding: 10px 0;
+                font-size: 0.9em;
+            }
+
+            .totals p {
+                font-size: 1.0em;
+            }
+
+            .totals .final-total {
+                font-size: 1.4em;
+            }
+
+            .payment-info,
+            .loyalty-offer,
+            .feedback-request,
+            .ticket-footer .thank-you,
+            .ticket-footer .website-info,
+            .ticket-footer p {
+                font-size: 0.8em;
+            }
+            .feedback-request .qr-code {
+                width: 70px;
+                height: 70px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="restaurant-ticket">
+        <div class="ticket-header">
+            <h2>The Culinary Haven</h2>
+            <p>Experience Exquisite Flavors</p>
+            <p>Unit 10, Grand Plaza Mall, Sector 18, Noida, Uttar Pradesh 201301</p>
+            <p class="contact-info">Phone: +91 98765 43210 | Email: contact@culinaryhaven.in</p>
+            <p class="order-info">
+                Date: June 02, 2025 | Time: 01:18 AM IST<br>
+                Invoice #: TCH-20250602-0012345 | Table: 12 | Server: Anya S.
+            </p>
+        </div>
+
+        <div class="order-details">
+            <table>
+                <thead>
+                    <tr>
+                        <th class="item-qty">Qty</th>
+                        <th>Item Description</th>
+                        <th class="item-price">Price (INR)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td class="item-qty">1</td>
+                        <td class="item-name">Pan-Seared Salmon with Dill Sauce</td>
+                        <td class="item-price">₹850.00</td>
+                    </tr>
+                    <tr>
+                        <td class="item-qty">1</td>
+                        <td class="item-name">Truffle Mushroom Pasta</td>
+                        <td class="item-price">₹720.00</td>
+                    </tr>
+                    <tr>
+                        <td class="item-qty">2</td>
+                        <td class="item-name">Classic Margherita Pizza</td>
+                        <td class="item-price">₹550.00</td>
+                    </tr>
+                    <tr>
+                        <td class="item-qty">1</td>
+                        <td class="item-name">Grilled Chicken Salad (Caesar)</td>
+                        <td class="item-price">₹480.00</td>
+                    </tr>
+                    <tr>
+                        <td class="item-qty">3</td>
+                        <td class="item-name">Fresh Lime Soda (Sweet        box-shadow: 0
